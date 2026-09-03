@@ -1,0 +1,17 @@
+@startuml
+title Algorithm Performance Analyzer
+
+actor Student
+component "Performance Analyzer" as Analyzer
+component "Sorting Algorithms" as Algorithms
+database "performance_results.csv" as Results
+component "Graph Generator" as Plotter
+artifact "performance_graphs.png" as Graph
+
+Student --> Analyzer : run benchmark
+Analyzer --> Algorithms : sort test inputs
+Analyzer --> Results : write timings
+Results --> Plotter : read results
+Plotter --> Graph : generate graph
+Student --> Graph : inspect comparison
+@enduml
